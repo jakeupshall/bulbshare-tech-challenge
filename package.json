@@ -1,6 +1,6 @@
 {
   "name": "frontend-tech-challenge",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -19,8 +19,8 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-     "react-app-rewired": "^2.2.1",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "react-app-rewired": "^2.2.1"
   },
   "scripts": {
     "start": "yarn run start:server & react-app-rewired start start",
