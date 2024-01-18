@@ -1,0 +1,129 @@
+@import "../../styles/base";
+@import "../../themes/colours";
+
+.Feed {
+  position: relative;
+  background-color: $feed-background-color;
+  box-shadow: 0px -2px 4px -3px #aeaeae;
+
+  & + & {
+    margin-top: 2rem;
+  }
+
+  &__Header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+  }
+
+  &__Content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    font-family: $app-font-family;
+    font-size: 1.1rem;
+    text-align: left;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__BannerImage {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.3;
+    }
+  }
+
+  &__BannerImage {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__TitleContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+
+    & > * {
+      margin: 0;
+    }
+  }
+}
+
+.Brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__LogoContainer {
+    position: relative;
+    max-width: none;
+    width: 30px;
+    height: 30px;
+    margin-right: 1.2rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  label {
+    font-weight: 700;
+    font-size: 12px;
+  }
+}
+
+.Brief {
+  &__Action {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 12px;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    color: #3c78d2;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
