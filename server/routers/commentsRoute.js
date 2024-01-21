@@ -2,15 +2,11 @@ const route = require("express").Router();
 
 const data = require("../data/comments.json");
 
-const briefRefPrefix = "brief-";
-
 route.get("/comments", (req, res) => {
   try {
-    const { id } = req.query;
+    const { feedId } = req.query;
 
-    const filteredData = data.filter(
-      (comment) => comment.briefref === briefRefPrefix + id
-    );
+    const filteredData = data.filter((comment) => comment.briefref === feedId);
     const formattedData = filteredData.map(
       ({ comment, submitted_on: submittedOn, user: { avatar, name } }) => ({
         user: {

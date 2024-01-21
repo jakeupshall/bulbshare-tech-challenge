@@ -16,6 +16,7 @@ route.get("/feed", (req, res) => {
     const paginatedData = data.slice(startIndex, endIndex);
     const formattedData = paginatedData.map(
       ({
+        briefref: id,
         brand,
         name,
         description,
@@ -26,6 +27,7 @@ route.get("/feed", (req, res) => {
         ad_2_image: adImage2,
         starts_on: startsOn,
       }) => ({
+        id,
         brand,
         name,
         description,
