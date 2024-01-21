@@ -1,0 +1,1 @@
+export { SlideArticle } from "./SlideArticle";

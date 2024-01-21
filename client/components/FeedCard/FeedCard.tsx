@@ -1,5 +1,8 @@
-import { forwardRef, LegacyRef } from "react";
+import { forwardRef, LegacyRef, useEffect, useState } from "react";
 
+import { FeedDetail } from "../../modules/FeedDetail";
+
+import { Modal } from "../Modal";
 import { FeedCardProps } from "./types";
 
 import classes from "./FeedCard.module.scss";
@@ -11,6 +14,7 @@ export const FeedCard = forwardRef(
       bannerImage,
       feedTitle,
     } = feed;
+    const [showDetail, setShowDetail] = useState<boolean>(false);
 
     const renderedContent = () => (
       <>
@@ -27,22 +31,44 @@ export const FeedCard = forwardRef(
             </button>
           </div>
         </div>
-        <div className={classes.Feed__Content}>
+        <button
+          className={classes.Feed__Content}
+          onClick={() => setShowDetail(true)}
+        >
           <span
             className={classes.Feed__BannerImage}
             style={{ backgroundImage: `url(${bannerImage})` }}
           />
-        </div>
-        <div className={classes.Feed__TitleContainer}>
-          <h1>{feedTitle}</h1>
-        </div>
+          <span className={classes.Feed__TitleContainer}>
+            <h1>{feedTitle}</h1>
+          </span>
+        </button>
       </>
     );
 
+    useEffect(() => {
+      if (showDetail) {
+        document.body.style.overflow = "hidden"; // prevent the background of the application from scrolling while the full-size lightbox modal is open
+      } else {
+        document.body.style.overflow = "";
+      }
+
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, [showDetail]);
+
     return (
-      <div className={classes.Feed} ref={ref}>
-        {renderedContent()}
-      </div>
+      <>
+        <div className={classes.Feed} ref={ref}>
+          {renderedContent()}
+        </div>
+        {showDetail && (
+          <Modal onCancel={() => setShowDetail(false)}>
+            <FeedDetail feed={feed} />
+          </Modal>
+        )}
+      </>
     );
   }
 );
