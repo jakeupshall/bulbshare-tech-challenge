@@ -1,0 +1,9 @@
+@import "../../themes/colours";
+
+.Backboard {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 400px;
+  background-color: $backboard-color;
+}
