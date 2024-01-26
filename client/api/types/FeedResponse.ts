@@ -1,4 +1,5 @@
 export interface FeedData {
+  id: string;
   brand: {
     name: string;
     logo: string;

@@ -1,0 +1,17 @@
+.Grid {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Section {
+  display: block;
+  width: 100%;
+
+  @for $colSize from 1 through 12 {
+    &--col-#{$colSize} {
+      width: (100% / 12) * $colSize;
+    }
+  }
+}
